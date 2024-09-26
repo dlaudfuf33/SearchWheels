@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Google Training Wheels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<div class="light-mode"> <!-- 기본은 일반 모드로 시작 -->
+  <div style="display: flex; flex-direction: column;">
+    <div class="left-utils">
+      <!-- 설명 사이트 버튼  -->
+      <button id="descriptsBtn" class="helpButton" style="max-width: 80px;">
+        ❓ Help
+      </button>
+      <!-- open-settings : 단축키 설정 버튼 -->
+      <button id="open-settings" class="settingsButton" style="max-width: 80px;">
+        ⚙️ 단축키
+      </button>
+    </div>
+  </div>
+  
+  <!-- 다크 모드 토글 버튼 -->
+  <div class="toggle-container">
+    <input type="checkbox" id="darkModeCheckbox" class="checkbox" />
+    <label for="darkModeCheckbox" class="checkbox-label">
+      <span class="moon">🌙</span>
+      <span class="sun">☀️</span>
+      <span class="ball"></span>
+    </label>
+  </div>
+  <!-- 툴팁 토글 버튼 -->
+  <div class="tooltip-toggle">
+    <input type="checkbox" id="tooltipCheckbox" class="checkbox" />
+    <label for="tooltipCheckbox" class="checkbox-label">
+      <span class="off">ℹ️</span>
+      <span class="on">🔕</span>
+      <span class="ball"></span>
+    </label>
+  </div>
+  
+
+
+  <div class="search-container">
+    <!-- 검색어 입력 필드 -->
+    <input type="text" id="searchQuery" placeholder="검색어를 입력하세요" />
+    <!-- 두 번째 버튼 (검색 버튼은 따로 배치) -->
+    <div class="search-btn-container">
+      <a id="searchBtn" href="#">
+        🔍
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 버튼 카테고리 전체 묶음 -->
+  <div class="button-grid-container">
+    <button id="site" class="button">site:</button>
+    <button id="source" class="button">source:</button>
+    <button id="related" class="button">related:</button>
+    <button id="intitle" class="button">intitle:</button>
+    <button id="intext" class="button">intext:</button>
+    <button id="allintitle" class="button">allintitle:</button>
+    <button id="allintext" class="button">allintext:</button>
+    <button id="filetype" class="button">filetype:</button>
+    <button id="ext" class="button">ext:</button>
+    <button id="define" class="button">define:</button>
+    <button id="cache" class="button">cache:</button>
+    <button id="weather" class="button">weather:</button>
+    <button id="stocks" class="button">stocks:</button>
+    <button id="map" class="button">map:</button>
+    <button id="movie" class="button">movie:</button>
+    <button id="around" class="button">around(x)</button>
+    <button id="exact" class="button">" "</button>
+    <button id="or" class="button">OR</button>
+    <button id="and" class="button">AND</button>
+    <button id="exclude" class="button">-</button>
+    <button id="wildcard" class="button">*</button>
+    <button id="group" class="button">()</button>
+    <button id="currency" class="button">₩, $</button>
+    <button id="range" class="button">#..#</button>
+    <button id="convert" class="button">in</button>
+  </div>
+
+  <script src="popup.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  width: 800px;
+  /* 팝업 너비 */
+  height: 300px;
+  /* 팝업 높이 */
+  display: flex;
+  flex-direction: column;
+  /* 세로 배치 */
+  align-items: center;
+}
+
+#colorPicker {
+  -webkit-appearance: none; /* 기본 색상 선택기 스타일 제거 */
+  border: 2px solid #333; /* 테두리 추가 */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* 원형으로 만들기 */
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%; /* 선택된 색상 부분도 원형으로 만들기 */
+}
+
+#colorPicker:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강조 */
+  border-color: #007bff; /* 호버 시 테두리 색상 변경 */
+}
+
+#colorCode {
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+h2 {
+  text-align: center;  
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90px;
+  /* margin-bottom: 5px; */
+}
+
+/* input 공통 스타일 */
+input {
+  padding: 1em 5em;
+  margin: 10px 0 0 0;
+  border-radius: 0.5em;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  /* 크기 변화와 함께 부드러운 전환 효과 */
+  position: relative;
+  width: 90%;
+  /* 기본 너비 */
+  max-width: 600px;
+  /* 최대 너비 제한 */
+}
+
+
+/* input 포커스 스타일 */
+input:focus {
+  box-shadow: 0 2px 3px #ccc;
+  border-bottom: 0.25em solid #0f5177;
+  top: -2px;
+}
+
+/* 버튼을 고정된 크기로 배치 */
+.button-grid-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* n개의 고정 크기 칸 */
+  gap: 5px;
+  width: 100%;
+  max-width: 900px;
+  /* 버튼 그리드 전체 최대 너비 */
+  justify-items: center;
+  margin-bottom: 20px;
+
+  /* 배경에 3D 느낌 */
+
+  padding: 20px;
+  border-radius: 10px;
+
+  /* 테두리 및 3D 효과 */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
+    -5px -5px 15px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.4);
+
+}
+
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.container {
+  margin: auto;
+}
+
+.button {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  flex: 1 0 5%;
+
+
+  /* 텍스트 스타일 개선 */
+  text-shadow: none;
+  text-align: center;
+  /* 텍스트 그림자 제거 */
+  font-size: 1em;
+  font-family: Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  font-weight: 700;
+  /* 폰트 두께를 더 두껍게 설정 */
+  color: #ffffff;
+  /* 텍스트를 밝은 흰색으로 설정하여 가독성 향상 */
+
+  height: 45px;
+  line-height: 45px;
+  padding: 0 20px;
+  display: inline-block;
+  width: 90px;
+  /* 고정된 너비 */
+
+  /* 배경 대비를 높이기 위해 색상 조정 */
+  background: linear-gradient(to bottom, #4a7c59 0%, #3b6f49 26%, #356542 100%);
+  border-radius: 5px;
+  border-top: 1px solid #5f9471;
+  border-bottom: 1px solid #487870;
+  top: 0;
+  transition: all 0.06s ease-out;
+  position: relative;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #6cae8c 0%, #5b977a 26%, #528d70 100%);
+}
+
+/* 툴팁 기본 스타일 (비활성화 상태) */
+.button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 툴팁이 활성화될 때 */
+.button.show-tooltip[data-tooltip]::after {
+  opacity: 1;
+}
+
+.button:active {
+  top: 4px;
+  color: #f1f1f1;
+  /* 클릭 시에도 밝은 색상 유지 */
+}
+
+.button:before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  top: 4px;
+  border-radius: 5px;
+  height: 45px;
+  background: linear-gradient(to top, #405347 0%, #5b7e64 6px);
+  transition: all 0.078s ease-out;
+  box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.3), 0 5px 2.4px rgba(0, 0, 0, 0.5), 0 10.8px 9px rgba(0, 0, 0, 0.2);
+}
+
+/* 다크 모드/일반 모드 스타일 */
+
+body.light-mode {
+  background-color: #da7b45;
+  color: #000000;
+}
+
+body.light-mode input {
+  background-color: #ffe4b5;
+  color: #000000;
+}
+
+
+/* searchBtn 스타일 */
+body.light-mode #searchBtn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px;
+  /* 버튼의 가로/세로 크기 조정 */
+  margin: 40px 0;
+  color: #260340;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  margin-right: 50px;
+  text-align: center;
+  /* 텍스트를 버튼 중앙에 위치시킵니다 */
+
+  width: auto;
+  /* 버튼의 가로 크기를 자동으로 설정 */
+}
+
+body.light-mode #searchBtn:hover {
+  background: #8c21ca;
+  color: #6f97f3;
+  box-shadow: 0 0 5px #8c21ca,
+    0 0 25px #8c21ca,
+    0 0 50px #8c21ca,
+    0 0 200px #8c21ca;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* 클릭 효과 */
+body.light-mode #searchBtn:active {
+  transform: scale(0.9);
+  /* 클릭 시 크기 축소 */
+  transition: transform 0.1s ease;
+  /* 클릭 후 반동 애니메이션 */
+}
+
+/* 애니메이션 효과 */
+body.light-mode #searchBtn span {
+  position: absolute;
+  display: block;
+}
+
+body.light-mode #searchBtn span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4d1a80);
+  animation: animate1 1s linear infinite;
+}
+
+
+body.light-mode #searchBtn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #4d1a80);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+body.light-mode #searchBtn span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #4d1a80);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+body.light-mode #searchBtn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #4d1a80);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+
+
+
+body.dark-mode {
+  background-color: #2b2b2b;
+  color: #ffffff;
+}
+
+body.dark-mode input {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+/* 다크 모드 스타일 */
+body.dark-mode {
+  background-color: #2b2b2b;
+  color: #ffffff;
+}
+
+/* searchBtn 스타일 */
+body.dark-mode #searchBtn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px;
+  /* 버튼의 가로/세로 크기 조정 */
+  margin: 40px 0;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  margin-right: 50px;
+  text-align: center;
+  /* 텍스트를 버튼 중앙에 위치시킵니다 */
+
+  width: auto;
+  /* 버튼의 가로 크기를 자동으로 설정 */
+}
+
+body.dark-mode #searchBtn:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* 클릭 효과 */
+body.dark-mode #searchBtn:active {
+  transform: scale(0.9);
+  /* 클릭 시 크기 축소 */
+  transition: transform 0.1s ease;
+  /* 클릭 후 반동 애니메이션 */
+}
+
+/* 애니메이션 효과 */
+body.dark-mode #searchBtn span {
+  position: absolute;
+  display: block;
+}
+
+body.dark-mode #searchBtn span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+
+
+body.dark-mode #searchBtn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+body.dark-mode #searchBtn span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+body.dark-mode #searchBtn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+/* 설명 버튼 */
+.descripts-container {
+  position: absolute;
+  /* 절대 위치 */
+  top: 10px;
+  /* 상단에서 20px 내려옴 */
+  left: 5px;
+  /* 우측에서 20px 떨어짐 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(57, 55, 55, 0.333);
+}
+
+/* 설정 버튼 */
+.settings-container {
+  position: absolute;
+  /* 절대 위치 */
+  top: 70px;
+  /* 상단에서 20px 내려옴 */
+  left: 5px;
+  /* 우측에서 20px 떨어짐 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(57, 55, 55, 0.333);
+}
+
+
+/* 슬라이드형 다크 모드 토글 버튼 */
+.toggle-container {
+  position: absolute;
+  /* 절대 위치 */
+  top: 20px;
+  /* 상단에서 20px 내려옴 */
+  right: 20px;
+  /* 우측에서 20px 떨어짐 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 툴팁 토글 버튼 스타일 */
+.tooltip-toggle {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 커스텀 툴팁 스타일 */
+.custom-tooltip {
+  position: absolute;
+  background-color: #2d572e;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 60px;
+  height: 30px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.moon {
+  color: #f1c40f;
+  position: absolute;
+  left: 5px;
+}
+
+.sun {
+  color: #f39c12;
+  position: absolute;
+  right: 5px;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+  transform: translateX(30px);
+}
+
+body.dark-mode .checkbox-label {
+  background-color: #555;
+}
+
+body.dark-mode {
+  background-color: #292c35;
+  color: #ffffff;
+}
+
+body.dark-mode input {
+  background-color: #444444;
+  color: #ffffff;
+}
