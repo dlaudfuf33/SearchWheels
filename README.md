@@ -2,7 +2,11 @@
 ![read1](https://github.com/user-attachments/assets/70e44ef2-c8af-4aa1-af3f-021d39aaf672)
 ![readsearch](https://github.com/user-attachments/assets/268652eb-e87f-41e5-b11c-000bc75588b8)
 ![a](https://github.com/user-attachments/assets/efa7cbd2-37b1-4e06-9625-9218e46495ce)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/70e44ef2-c8af-4aa1-af3f-021d39aaf672" width="200" />
+  <img src="https://github.com/user-attachments/assets/268652eb-e87f-41e5-b11c-000bc75588b8" width="200" />
+  <img src="https://github.com/user-attachments/assets/efa7cbd2-37b1-4e06-9625-9218e46495ce" width="200" />
+</p>
 ## 프로젝트 목적
 
 이 프로젝트는 구글 검색 연산자를 자주 까먹고 잘 사용하지 않게 되는 것을 해결하기 위해 시작하였습니다. 
