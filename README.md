@@ -1,4 +1,3 @@
-# trainingWheels- README
 <p align="center">
   <img src="https://github.com/user-attachments/assets/70e44ef2-c8af-4aa1-af3f-021d39aaf672" width="400" />
   <img src="https://github.com/user-attachments/assets/268652eb-e87f-41e5-b11c-000bc75588b8" width="400" />
